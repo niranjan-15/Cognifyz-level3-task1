@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantastic Image Gallery</title>
+    <link rel="stylesheet" href="index1.css">
+</head>
+<body>
+    <h1>Fantastic Image Gallery</h1>
+    <div class="gallery">
+        <div class="thumbnail">
+            <img src="./image/burger-01.png" alt="Image 1">
+        </div>
+        <div class="thumbnail">
+            <img src="./image/fruits-01.png" alt="Image 2">
+        </div>
+        <div class="thumbnail">
+            <img src="./image/gathiya-01.png" alt="Image 3">
+        </div>
+        <!-- Add more thumbnails as needed -->
+    </div>
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script>
+        const thumbnails = document.querySelectorAll('.thumbnail img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                lightbox.style.display = 'block';
+                lightboxImg.src = thumbnail.src;
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
